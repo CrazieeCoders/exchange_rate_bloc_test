@@ -61,11 +61,11 @@ class _ConvertPageUIState extends State<ConvertPageUI> {
       title: Text('${widget.currencyList[i].countryCode}'),
       subtitle:   widget.value == null?
       Text(
-    '1 ${widget.currencyList[i].countryCode.substring(0,3)} = '+
+    '1 ${(widget.currencyList[i].countryCode).substring(0,3)} = '+
           widget.exchangeRate[widget.currencyList[i].countryCode.substring(0,3)]
               .toString()):
       Text(
-          '1 ${widget.currencyList[i].countryCode.substring(0,3)} = '+
+          '${1*widget.value} ${widget.currencyList[i].countryCode.substring(0,3)} = '+
               (widget.exchangeRate[widget.currencyList[i].countryCode.substring(0,3)]*widget.value)
                   .toStringAsFixed(2))
       ,
@@ -130,7 +130,7 @@ class _ConvertPageUIState extends State<ConvertPageUI> {
             ),
             title: Text('${widget.currencyList[i].countryCode}'),
             subtitle: Text(
-                '1 ${widget.currencyList[0].countryCode} = '+
+                '1 ${widget.currencyList[0].countryCode.substring(0,3)} = '+
             widget.exchangeRate[widget.currencyList[i].countryCode.substring(0,3)]
                 .toString() +'  ${widget.currencyList[i].countryCode.substring(0,3)}' ),
             trailing: Wrap(
